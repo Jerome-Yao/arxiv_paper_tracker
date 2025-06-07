@@ -35,7 +35,7 @@ EMAIL_TO = [email.strip() for email in os.getenv("EMAIL_TO", "").split(",") if e
 
 PAPERS_DIR = Path("./papers")
 CONCLUSION_FILE = Path("./conclusion.md")
-CATEGORIES = ["cs.AR", "cs.OS","cs.PL"]
+CATEGORIES = ["cs.OS","cs.PL"]
 MAX_PAPERS = 15  # 设置为1以便快速测试
 
 # 配置OpenAI API用于DeepSeek
@@ -52,7 +52,7 @@ def get_recent_papers(categories, max_results=MAX_PAPERS):
     # 计算最近5天的日期范围
     today = datetime.datetime.now()
     today = today - datetime.timedelta(days=8)
-    five_days_ago = today - datetime.timedelta(days=30)
+    five_days_ago = today - datetime.timedelta(days=200)
     
     # 格式化ArXiv查询的日期
     start_date = five_days_ago.strftime('%Y%m%d')
